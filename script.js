@@ -92,3 +92,47 @@ startAutoSlide();
   // Run on load
   handleScrollAnimation();
 
+const abtSlides = document.querySelectorAll('.abt-slide');
+const abtNext = document.querySelector('.abt-nex  t');
+const abtPrev = document.querySelector('.abt-prev');
+let abtIndex = 0;
+let abtInterval;
+
+function abtShowSlide(index) {
+  abtSlides.forEach((slide, i) => {
+    slide.classList.remove('abt-active');
+    if (i === index) slide.classList.add('abt-active');
+  });
+}
+
+function abtNextSlide() {
+  abtIndex = (abtIndex + 1) % abtSlides.length;
+  abtShowSlide(abtIndex);
+}
+
+function abtPrevSlide() {
+  abtIndex = (abtIndex - 1 + abtSlides.length) % abtSlides.length;
+  abtShowSlide(abtIndex);
+}
+
+abtNext.addEventListener('click', () => {
+  abtNextSlide();
+  abtResetAuto();
+});
+abtPrev.addEventListener('click', () => {
+  abtPrevSlide();
+  abtResetAuto();
+});
+
+function abtStartAuto() {
+  abtInterval = setInterval(abtNextSlide, 15000);
+}
+function abtResetAuto() {
+  clearInterval(abtInterval);
+  abtStartAuto();
+}
+abtStartAuto();
+
+const abtCarousel = document.querySelector('.abt-carousel');
+abtCarousel.addEventListener('mouseenter', () => clearInterval(abtInterval));
+abtCarousel.addEventListener('mouseleave', abtStartAuto);

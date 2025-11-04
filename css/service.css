@@ -357,6 +357,9 @@ html { scroll-behavior: smooth; }
   .service-inner { grid-template-columns: 1fr; gap: 18px; }
   .service-graphic { order: -1; } /* graphics first on small */
   .card-link.card-active { transform: none; }
+  ul{
+    flex-direction: column;
+  }
 }
 footer{
   align-items: center;

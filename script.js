@@ -93,7 +93,7 @@ startAutoSlide();
   handleScrollAnimation();
 
 const abtSlides = document.querySelectorAll('.abt-slide');
-const abtNext = document.querySelector('.abt-nex  t');
+const abtNext = document.querySelector('.abt-next');
 const abtPrev = document.querySelector('.abt-prev');
 let abtIndex = 0;
 let abtInterval;
@@ -136,3 +136,86 @@ abtStartAuto();
 const abtCarousel = document.querySelector('.abt-carousel');
 abtCarousel.addEventListener('mouseenter', () => clearInterval(abtInterval));
 abtCarousel.addEventListener('mouseleave', abtStartAuto);
+// Hamburger menu functionality
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const drops = document.querySelectorAll('.drop');
+
+// Toggle mobile menu
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('sho');
+    navLinks.classList.toggle('active');
+});
+
+// Close menu when clicking on a link (mobile)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            
+            // Close any open dropdowns
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+});
+
+// Mobile dropdown functionality
+drops.forEach(drop => {
+    const dropdown = drop.querySelector('.dropdown');
+    
+    drop.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle('show');
+            
+            // Rotate caret icon
+            const icon = drop.querySelector('i');
+            if (dropdown.classList.contains('show')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    });
+});
+
+// Close menu when clicking outside (mobile)
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('show');
+            navLinks.classList.remove('show');
+            
+            // Close any open dropdowns
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
+            
+            // Reset caret icons
+            document.querySelectorAll('.drop i').forEach(icon => {
+                icon.style.transform = 'rotate(0deg)';
+            });
+        }
+    }
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        
+        // Reset mobile dropdowns
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+        
+        // Reset caret icons
+        document.querySelectorAll('.drop i').forEach(icon => {
+            icon.style.transform = '';
+        });
+    }
+});

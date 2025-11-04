@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+img{
+  height: 100%;
+  width: 100%;
+}
+.all {
+  width: 100%;
+  height: 93%;
+  background-color: rgba(145, 31, 31, 0);
+  align-items: center;
+  justify-content: center;
+  display: flex;f
+  position: absolute;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.in {
+  width: 40%;
+  height: 90%;
+  background-color: rgba(131, 131, 131, 0.452);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 0px 90px 0px 90px;
+  backdrop-filter: blur(20px);
+}
+
+.in h1 {
+  color: #ffffff;
+  font-family: serif;
+}
+
+.input {
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  width: 100%;
+  height: 70%;
+  flex-direction: column;
+}
+
+input {
+  width: 80%;
+  padding: 12px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid #cf2428;
+  
+}
+input::placeholder{
+  color: #cf2428;
+}
+
+button {
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  background-color: #cf2428;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  top: 20px;
+  right: -400px;
+  width: 320px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  border-radius: 10px 0 0 10px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  z-index: 999;
+  font-family: serif;
+}
+
+.modal-content {
+  padding: 20px;
+  text-align: center;
+  font-family: serif;
+}
+
+.icon {
+  font-size: 10px;
+  margin-bottom: 10px;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.progress-bar {
+  height: 6px;
+  width: 100%;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress {
+  height: 100%;
+  width: 100%;
+  background: red;
+  transition: width 0.05s linear;
+}

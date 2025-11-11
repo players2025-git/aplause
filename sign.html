@@ -4,18 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign Up</title>
+  <link rel="shortcut icon" href="img/ChatGPT_Image_Oct_22__2025__10_47_58_PM-removebg-preview.png" type="image/x-icon">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
   <link rel="stylesheet" href="sign.css" />
 </head>
 <body>
   <img src="img/ChatGPT Image Nov 1, 2025, 09_06_53 AM.png" alt="">
   <div class="all">
-    <form id="signupForm" method="POST">
+    <form id="signupForm" action="sign.php" method="POST">
       <div class="in">
         <h1>Sign up</h1>
         <div class="input">
           <input type="text" placeholder="First Name" name="first_name" id="firstName" />
           <input type="text" placeholder="Last Name" name="last_name" id="lastName" />
-          <input type="number" placeholder="Phone No" name="phone" id="phone" />
+          <input type="text" placeholder="Phone No" name="phone" id="phone" />
           <input type="email" placeholder="Email" name="email" id="email" />
           <input type="password" placeholder="Password" name="password" id="password" />
           <input type="password" placeholder="Confirm Password" name="confirm_password" id="confirmPassword" />

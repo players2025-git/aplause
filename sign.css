@@ -136,3 +136,8 @@ button {
   background: red;
   transition: width 0.05s linear;
 }
+@media (max-width:768px){
+    .in{
+        width: 90%;
+    }
+}
